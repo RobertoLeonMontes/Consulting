@@ -1,0 +1,185 @@
+drop database consulting;
+create database consulting;
+use consulting;
+
+create table Login(
+IdUsu int default null,
+NombreUsu varchar(50) default null,
+PassUsu varchar(100) default null,
+TipoUsu varchar(10) default null
+);
+commit;
+
+create table Aplicante(
+IdApli int default null,
+NombreApli varchar(50) default null,
+ApellidosApli varchar(50) default null,
+EmailApli varchar(50) default null,
+TelefonoApli int default null,
+Usu_Id int default null
+);
+commit;
+
+insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli) values(1,"Root","Administrador","root@gmail.com",0123456789);
+insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli) values(2,"Roberto","Leon Montes","megaepsilon_omega@hotmail.com",0123456789);
+
+create table Examen(
+IdExam int default null,
+NombreExamen varchar(100) default null,
+TipoExamen int default null,
+Total_Preguntas int default null,
+Apli_Id int default null
+);
+commit;
+
+create index Exa_men on Examen(TipoExamen);
+create index Ex_amen on Examen(IdExam);
+commit;
+
+create table Pregunta(
+IdPreg int default null,
+Tipo_Examen int default null,
+Pregunta text default null,
+OpcionUno Varchar(200) default null,
+OpcionDos Varchar(200) default null,
+OpcionTres Varchar(200) default null,
+RespuestaCorrecta Varchar(200) default null,
+Respuesta text default null
+);
+commit;
+
+
+create table Resultado(
+IdResul int default null,
+Id_Usu_FK int default null,	
+Tipo_Exam int default null,
+Total int default null
+);
+commit;
+
+
+-- INSERTS EN EXAMEN
+insert into Examen (IdExam,NombreExamen,TipoExamen,Total_Preguntas) values(1,"Examen Lenguajes",1,10);
+insert into Examen (IdExam,NombreExamen,TipoExamen,Total_Preguntas) values(2,"Examen Base de Datos",2,10);
+
+
+-- INSERTS PREGUNTA
+
+-- PREGUNTAS PARA EL EXAMEN DE Lenguajes De Programación
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(1,1,"Cuales son 4 caracteristicas de la orientacion a objetos?","Encapsulacion, cohesion, modularidad y jerarquia","Encapsulacion, Abstraccion, modularidad y Entidad","Encapsulacion, Abstraccion, modularidad y herencia","Encapsulacion, Abstraccion, modularidad y herencia");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(2,1,"Cual es una palabra reservada de JAVA?","For","New","Next","For");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(3,1,"Seleccione de la lista cuales son las caracteristicas aplicables de una INTERFACE y una CLASE ABSTRACTA.","Todos los metodos de una interfaz  se declaran implicitamente como abstractos y publicos","No puede  implementar los  metodos  declarados como  abstractos","Se crea solo para que otras clases se derivan de ella pero no para crear objetos a partir de ella.","Todos los metodos de una interfaz  se declaran implicitamente como abstractos y publicos");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(4,1,"Que es la herencia?","Es un mecanismo que permite que los objetos sean creados a partir de otros ya existentes consideradas como superclases, obteniendo caracteristicas (metodos y atributos) similares a los ya existentes.","Es la forma en que los objetos concretos son creados al realizar su instanciacion.","Se cumple cuando dos clases con los mismos metodos y propiedades se aislan a una sola clase con los metodos y propiedades comunes para eliminar la redundancia.","Es un mecanismo que permite que los objetos sean creados a partir de otros ya existentes consideradas como superclases, obteniendo caracteristicas (metodos y atributos) similares a los ya existentes.");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(5,1,"Que es un Lenguaje de alto nivel?","Es un compilador estable y potente para la solucion de problemas humanos y los entienda fisicamente la PC.","Es el sistema de codigos directamente interpretable (0 y 1) por un circuito microprogramable, como el microprocesador de una computadora.","Es un es un lenguaje de programacion para los computadores, microprocesadores, microcontroladores y otros circuitos integrados programables.","Es un es un lenguaje de programacion para los computadores, microprocesadores, microcontroladores y otros circuitos integrados programables.");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(6,1,"Son los tipos de datos que se manejan en Programacion.","Cadena, Boleano, Caracter, Numeros, alfanuemrico, Entero.","String, Boolean, Char, Integer, int, etc.","Tipo Java, C++, Smalltalk, Python, Object Pascal, Visual .net, Visual Basic, Delphi, Perl, entre otros.","Cadena, Boleano, Caracter, Numeros, alfanuemrico, Entero.");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(7,1,"Que es una Clase en Programacion?","Es un programa que transforma codigo fuente escrito en java a un codigo neutral a la plataforma conocido como java.","Es una coleccion o conjunto de objetos que comparten caracteristicas comunes entre si.","Es un programa contable que traduce un programa escrito en un lenguaje de programacion a otro lenguaje de programacion.","Es una coleccion o conjunto de objetos que comparten caracteristicas comunes entre si.");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(8,1,"Que es un Constructor en Java?","Es un compilador estable y potente para la solucion de problemas humanos y los entienda físicamente la PC.","Es un metodo especial de una clase que se llama automaticamente siempre que se declara un objeto de esa clase.","Es modulo ordenado de elementos para la computadora que se encuentran interrelacionados y que interactuan entre si, en apoyo al usuario.","Es modulo ordenado de elementos para la computadora que se encuentran interrelacionados y que interactuan entre si, en apoyo al usuario.");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(9,1,"Que significa JDK?","Java Development Kit","Java Distance kilobye","Kilobyte Java Development","Java Development Kit");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(10,1,"A que se le llama entorno de desarrollo IDE?","Es un programa informatico compuesto por un conjunto de herramientas de programacion","Es un programa que transforma codigo fuente escrito en java a un codigo neutral a la plataforma conocido como java.","Es un lenguaje o Sfw diseñado para describir un conjunto de acciones consecutivas que un equipo debe ejecutar.","Es un programa informatico compuesto por un conjunto de herramientas de programacion");
+
+
+-- PREGUNTAS PARA EL EXAMEN DE Base De Datos
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(11,2,"Cual es la mejor practica para realizar un insert","insert into tabla values (valor1,valor2,valor)","insert into tabla(campo1,campo2,campo3) values (valor1,valor2,valor3)","insert into tabla(campo1,campo3,campo2) values (valor1,calor2,valor3)","insert into tabla(campo1,campo2,campo3) values (valor1,valor2,valor3)");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(12,2,"Indique que contiene la seccion declarativa (DECLARE):","Sentencias que declaran variables","Sentencias que declaran constantes","Sentencias que declaran variables y constantes","Sentencias que declaran variables y constantes");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(13,2,"Indique si la seccion DECLARE es opcional u obligatoria:","Opcional","Obligatoria","Ninguna de las anteriores","Opcional");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(14,2,"Indique que contiene la seccion ejecutable (BEGIN):","Sentencias que se ejecutan cuando se compila el bloque","Sentencias que se ejecutan cuando se ejecuta el bloque","Constantes y variables que se ejecutan cuando se ejecuta el bloque","Sentencias que se ejecutan cuando se ejecuta el bloque");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(15,2,"Indique si la seccion BEGIN es opcional u obligatoria:","Opcional","Obligatoria","Ninguna de las anteriores","Obligatoria");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(16,2,"Indique que contiene la seccion de excepciones (EXCEPTION):","Seccion especialmente estructurada para atrapar cualquier excepcion que se produzca durante la ejecucion de la seccion ejecutable","Seccion especialmente estructurada para manejar cualquier excepcion que se produzca durante la ejecucion de la seccion ejecutable","Seccion especialmente estructurada para atrapar y manejar cualquier excepcion que se produzca durante la ejecucion de la seccion ejecutable","Seccion especialmente estructurada para atrapar y manejar cualquier excepcion que se produzca durante la ejecucion de la seccion ejecutable");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(17,2,"Indique si la seccion EXCEPTION es opcional u obligatoria:","Opcional","Obligatoria","La seccion no existe","Opcional");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(18,2,"Que es una Base de Datos?","Es un banco de datos","Es un conjunto de datos almacenados para su uso posterior","Todas las anteriores","Todas las anteriores");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(19,2,"Cual es una palabra reservada de JAVA?","For","New","Next","For");
+
+insert into Pregunta (IdPreg,Tipo_Examen,Pregunta,OpcionUno,OpcionDos,OpcionTres,RespuestaCorrecta) 
+values(20,2,"Cual es una palabra reservada de JAVA?","For","New","Next","For");
+
+-- PRIMARY KEYS
+
+--Llave primaria de Login
+alter table Login add constraint IdUsu_PK primary key (IdUsu);
+
+-- Llave primaria de Resultado
+alter table Resultado add constraint Id_Resul_PK primary key(IdResul);
+
+-- Llave primaria de Aplicante
+alter table Aplicante add constraint Id_Aplicante_PK primary key (IdApli);
+
+-- Llave primaria de Examen
+alter table Examen add constraint Id_Examenes_PK primary key (IdExam,TipoExamen);
+
+--Llave primaria de Pregunta
+alter table Pregunta add constraint Id_Preg_PK primary key (IdPreg);
+
+-- Llave primaria de Respuesta
+-- alter table Respuesta add constraint Id_Respuesta_PK primary key (IdPreg);
+
+--Modificacion de Apli_Id y Respuesta para valores no nulos
+
+-- alter table Examen modify Apli_Id int not null;
+-- alter table Pregunta modify Respuesta Varchar(500) not null;
+
+--AUTO INCREMENT PARA PRIMARY KEYS
+
+alter table Login modify IdUsu int not null auto_increment;
+alter table Resultado modify IdResul int not null auto_increment;
+alter table Aplicante modify IdApli int not null auto_increment;
+alter table Examen modify IdExam int not null auto_increment;
+-- alter table Pregunta modify IdPreg int not null auto_increment;
+
+
+-- FOREIGN KEYS
+
+--Llave foranea de Aplicante hacia Login
+alter table Aplicante add constraint USUARIO_ID_FK foreign key (Usu_Id) references Login (IdUsu);
+
+--Llave foranea de Examen hacia Aplicante
+alter table Examen add constraint ID_APLICANTE_FK foreign key (Apli_Id) references Aplicante(IdApli);
+
+-- Llave forane de Pregunta hacia Examen
+-- alter table Pregunta add constraint Tipo_Examen_FK foreign key (Tipo_Examen) references Examen(TipoExamen);
+
+-- Llave foranea de Resultado hacia Examen
+alter table Resultado add constraint Tipo_Exam_FK foreign key (Tipo_Exam) references Examen(TipoExamen);
+
+-- Llave foranea de Pregunta a Examen (2)
+-- alter table Pregunta add constraint Id_Examen_FK foreign key (Id_Examen) references Examen(IdExam);
+
+-- Llave foranea de Resultado hacia Login
+alter table Resultado add constraint ID_Usuario_FK foreign key (Id_Usu_FK) references Login(IdUsu);
+
+commit;
