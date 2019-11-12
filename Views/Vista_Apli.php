@@ -13,29 +13,26 @@
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
-	
+	<div class="w3-container w3-blue w3-center">
 		<h1>BIENVENIDO A TU CUENTA</h1>
-	
-
-	<form action="../Views/Vista_ExamenBDD.php" method="post">
-		<p>
+	</div>
+	<p>
+	<form class="w3-container w3-center" action="../Views/Vista_ExamenBDD.php" method="post">
 			<input type="hidden" name="examenBDD" value="examenBDD">
-			<button>Examen sobre Base de Datos</button>
-		</p>
+			<button class="w3-btn w3-blue">Examen sobre Base de Datos</button>
 	</form>	
-	
-	<form action="../Views/Vista_ExamenProgra.php" method="post">
-
-		<p>
+	</p>
+	<p>
+	<form class="w3-container w3-center" action="../Views/Vista_ExamenProgra.php" method="post">
 			<input type="hidden" name="examenProgra" value="examenProgra">
-			<button >Examen sobre Lenguajes de programación</button>
-		</p>
+			<button class="w3-btn w3-blue">Examen sobre Lenguajes de programación</button>
 	</form>
+	</p>
 
 	<p></p>
-	<form action="../Controllers/Controlador_Aplicante.php" method="post">
+	<form class="w3-container w3-center" action="../Controllers/Controlador_Aplicante.php" method="post">
 		<input type="hidden" name="salir" value="salir">
-		<button>Salir</button>
+		<button class="w3-btn w3-red">Salir</button>
 	</form>
 
 </body>

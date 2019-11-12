@@ -17,10 +17,10 @@
 	 	
 	 	if ($crud->buscarUsuario($_POST['NombreUsu'])) {
 	 		$crud->insertar($usuario);
-	 		header('Location: ../Views/Vista_Login.php');
+	 		header('Location: ../Views/indexDos.php');
 	 	}else{
 	 		header('Location: ../Views/Vista_Error.php?mensaje=El nombre de usuario ya existe');
-	 	}				
+	 	}
 	 }
 
 

@@ -12,29 +12,45 @@
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
+	<div align="center" class="w3-container w3-blue">
 	<h1>BIENVENIDO A CONSULTING & BUSINESS TRAINING</h1>
+	</div>
 
+	<div align="center" class="w3-container w3-blue">
 	<h2>Iniciar Sesión</h2>
+	</div>
 
 		<form action="../Controllers/Controlador_Login.php" method="post" >
-			<p>
+			<div align="center">
+				<p>
 				<label>Nombre de Usuario</label>
-				<input type="text" name="NombreUsu">
-			</p>
-
+				<input align="center" class="w3-input w3-border" type="text" name="NombreUsu">
+				</p>
+			</div>
+			<div align="center">
 			<p>
 				<label>Contraseña</label>
-				<input type="Password" name="PassUsu">
-			</p>		
-
+				<input align="center" class="w3-input w3-border" type="Password" name="PassUsu">
+			</p>
+			</div>		
+			<div align="center">
 			<p>
-				<button>Aceptar</button>
+				<button class="w3-btn w3-blue">Aceptar</button>
 				<input type="hidden" name="entrar">
 			</p>
+			</div>
 
-			<p>Si aún no tienes cuenta ve al siguiente link 
-			<a href="../Views/Vista_Registrar_Usuario.php">registrarse</a>
+			<div>
+			<p> 
+			<a href="../Views/Vista_Registrar_Usuario.php"></a>
 			</p>
+			</div>
 		</form>
+		<footer>
+	<div align="center" class="w3-container w3-blue">
+		<h4>CONSULTING & BUSINESS TRAINING</h4>
+	</div>
+</footer>
 </body>
 </html>	
+

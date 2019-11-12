@@ -89,13 +89,19 @@ body {
 <body><center>
 <div class="title">BASE DE DATOS</div>
 
-<?php 										
+<?php
+// $IdDeUsuario="SELECT `IdUsu` from `Login` where `IdUsu` = `$_SESSION['IdUsu']`";
+// $ResultadoUsu=mysqli_query($con,$IdDeUsuario);
+// $TipoDeExamen="SELECT `TipoExamen` from `Examen` where `TipoExamen` = `$_SESSION['TipoExamen']`";
+// $ResultadoExam=mysqli_query($con,$TipoDeExamen);
+// // $IdDeAplicante="SELECT IdApli from Aplicante where IdApli = $_SESSION['IdApli']";
+// // $ResultadoApli=mysqli_query($con,$IdDeAplicante);
       include("../Controllers/Controlador_Header.php");					
 			if (isset($_POST['click']) || isset($_GET['start'])) {
 			@$_SESSION['clicks'] += 1 ;
 			$c = $_SESSION['clicks'];
 			if(isset($_POST['Respuesta'])) { $userselected = $_POST['Respuesta'];
-			$fetchqry2 = "UPDATE `Pregunta` SET `Respuesta`='$userselected' WHERE `IdPreg`=$c+3"; 
+			$fetchqry2 = "UPDATE `Pregunta` SET `Respuesta`='$userselected' WHERE `IdPreg`=$c+9"; 
 			$result2 = mysqli_query($con,$fetchqry2);
 			}														
  			} else {
@@ -120,7 +126,7 @@ body {
 
     <?php 
 
-    if(isset($c)) {   $fetchqry = "SELECT `IdPreg`, `Pregunta`,`OpcionUno`,`OpcionDos`,`OpcionTres`,`RespuestaCorrecta`,`Respuesta` from Pregunta where IdPreg='$c'+4 and Tipo_Examen=2 ORDER BY rand() limit 10"; 
+    if(isset($c)) {   $fetchqry = "SELECT `IdPreg`, `Pregunta`,`OpcionUno`,`OpcionDos`,`OpcionTres`,`RespuestaCorrecta`,`Respuesta` from Pregunta where IdPreg='$c'+10 and Tipo_Examen=2 ORDER BY rand() limit 10"; 
 				$result=mysqli_query($con,$fetchqry);
 				$num=mysqli_num_rows($result);
 				$row = mysqli_fetch_array($result,MYSQLI_ASSOC); }
@@ -139,7 +145,6 @@ body {
   //$qry5 = "SELECT `E.Total_Preguntas` from Examen E, Pregunta P where `E.TipoExamen`=`P.IdPreg` and `E.TipoExamen` = `P.Tipo_Examen`";
   // $Total_Preguntas = mysqli_query($con,$qry5);
   if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ 
-
   ?>
   
   <tr><td><input required type="radio" name="Respuesta" value="<?php echo $row['OpcionUno'];?>">&nbsp;<?php echo $row['OpcionUno']; ?><br>
@@ -183,7 +188,8 @@ body {
   <?php
 
   echo $no*2; 
-
+  $queryresultado="INSERT into Resultado (Id_Usu_FK,Tipo_Exam,Total) values ($no,@_SESSION['IdApli'],@_SESSION['TipoExamen']) where  Id_Usu_FK = @_SESSION['Id_Apli_FK']";
+  mysqli_query($con,$queryresultado);
   ?>
       
   </span>
