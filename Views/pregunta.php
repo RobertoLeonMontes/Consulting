@@ -39,9 +39,9 @@
             <td>
                 <a  class="btn btn-warning" href="?c=pregunta&a=Crud&IdPreg=<?php echo $r->IdPreg; ?>">Editar</a>
             </td>
-            <td>
-                <a class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" ></a>
-            </td>
+            <!-- <td>
+                <a  class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=pregunta&a=Eliminar&IdPreg=<?php echo $r->IdPreg; ?>">Eliminar</a>
+            </td> -->
         </tr>
     <?php endforeach; ?>
     </tbody>
