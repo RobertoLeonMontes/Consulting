@@ -23,7 +23,7 @@
             <th style=" background-color: #5DACCD; color:#fff">Opcion Tres</th>
             <th style="width:120px; background-color: #5DACCD; color:#fff">Respuesta Correcta</th>
             <th style="width:60px; background-color: #5DACCD; color:#fff"></th>
-            <th style="width:60px; background-color: #5DACCD; color:#fff"></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -40,7 +40,7 @@
                 <a  class="btn btn-warning" href="?c=pregunta&a=Crud&IdPreg=<?php echo $r->IdPreg; ?>">Editar</a>
             </td>
             <td>
-                <a  class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=pregunta&a=Eliminar&IdPreg=<?php echo $r->IdPreg; ?>">Eliminar</a>
+                <a class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" ></a>
             </td>
         </tr>
     <?php endforeach; ?>
