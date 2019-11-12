@@ -17,13 +17,13 @@ IdApli int default null,
 NombreApli varchar(50) default null,
 ApellidosApli varchar(50) default null,
 EmailApli varchar(50) default null,
-TelefonoApli int default null,
+TelefonoApli int(15) default null,
 Usu_Id int default null
 );
 commit;
 
-insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli) values(1,"Root","Administrador","root@gmail.com",0123456789);
-insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli) values(2,"Roberto","Leon Montes","megaepsilon_omega@hotmail.com",0123456789);
+insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli,Usu_Id) values(1,"Root","Administrador","root@gmail.com",0123456789,1);
+-- insert into Aplicante (IdApli,NombreApli,ApellidosApli,EmailApli,TelefonoApli) values(2,"Roberto","Leon Montes","megaepsilon_omega@hotmail.com",0123456789);
 
 create table Examen(
 IdExam int default null,
