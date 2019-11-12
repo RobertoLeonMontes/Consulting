@@ -1,6 +1,6 @@
-drop database consulting;
-create database consulting;
-use consulting;
+drop database consulting2;
+create database consulting2;
+use consulting2;
 
 create table Login(
 IdUsu int default null,
@@ -9,6 +9,8 @@ PassUsu varchar(100) default null,
 TipoUsu varchar(10) default null
 );
 commit;
+
+insert into Login values(1,"Root","$2y$10$.i/HYhnPc.qKY7Oq4pRAR.jd/demjruUe8agJeCql9DOLqXRkEJRW",1);
 
 create table Aplicante(
 IdApli int default null,
