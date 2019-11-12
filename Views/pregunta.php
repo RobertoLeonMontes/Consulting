@@ -6,11 +6,11 @@
 <form action="../Controllers/pregunta.controller.php" method="post">
         <p>
             <input type="hidden" name="Administrador" value="Administrador">
-            <button >Atras</button>
+            <button>Atras</button>
         </p>
     </form>
-    <a class="btn btn-primary pull-right" href="?c=pregunta&a=Crud">Agregar</a>
-<br><br><br>
+    <!-- <a class="btn btn-primary pull-right" href="?c=pregunta&a=Crud">Agregar</a> -->
+<!-- <br><br><br> -->
 
 <table class="table  table-striped  table-hover" id="tabla">
     <thead>
